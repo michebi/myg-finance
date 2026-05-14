@@ -9,35 +9,50 @@
   display: none !important;
 }
 
-/* Collapse buttons on the inner edge of each panel. */
+/*
+ * Circular collapse buttons on the inner edge of each panel.
+ * Uses Google Finance (gm3) Material 3 system color tokens so the
+ * button automatically adapts to light and dark themes. Fallbacks
+ * are provided for environments where the tokens are not defined.
+ */
 .ft-collapse-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 24px;
-  height: 48px;
-  border: none;
-  background: rgba(138, 180, 248, 0.15);
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 18px;
-  font-weight: bold;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--gm3-sys-color-surface, #ffffff);
+  border: 1px solid var(--gm3-sys-color-outline-variant, var(--gm3-sys-color-outline, #c4c7c5));
+  color: var(--gm3-sys-color-on-surface, #1f1f1f);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
   cursor: pointer;
   z-index: 9999;
-  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 150ms ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
 }
 
 .ft-collapse-btn:hover {
-  background: rgba(138, 180, 248, 0.4);
+  background: var(--gm3-sys-color-surface-container, var(--gm3-sys-color-surface-variant, #f1f3f4));
+  border-color: var(--gm3-sys-color-outline, #9aa0a6);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.ft-collapse-btn:focus-visible {
+  outline: 2px solid var(--gm3-sys-color-primary, #0b57d0);
+  outline-offset: 2px;
 }
 
 .ft-collapse-btn-left {
-  right: 4px;
+  right: 6px;
 }
 
 .ft-collapse-btn-right {
-  left: 4px;
+  left: 6px;
 }
