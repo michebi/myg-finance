@@ -1,0 +1,43 @@
+/* Smooth width animation for both panels. */
+[data-fh-pn="1"],
+[data-fh-pn="2"] {
+  transition: width 250ms ease !important;
+}
+
+/* When a panel is collapsed, hide all its children EXCEPT our button. */
+[data-fh-pn].ft-collapsed > *:not(.ft-collapse-btn) {
+  display: none !important;
+}
+
+/* Collapse buttons on the inner edge of each panel. */
+.ft-collapse-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 48px;
+  border: none;
+  background: rgba(138, 180, 248, 0.15);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 9999;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 150ms ease;
+}
+
+.ft-collapse-btn:hover {
+  background: rgba(138, 180, 248, 0.4);
+}
+
+.ft-collapse-btn-left {
+  right: 4px;
+}
+
+.ft-collapse-btn-right {
+  left: 4px;
+}

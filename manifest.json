@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Finance Tweaks",
+  "version": "0.1.0",
+  "description": "Small tweaks for Google Finance.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "finance-tweaks@yourname.dev",
+      "strict_min_version": "115.0"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com/finance/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
